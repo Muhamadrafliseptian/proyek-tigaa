@@ -13,6 +13,23 @@ class LoginView extends GetView<LoginController> {
       body: ListView(
         padding: EdgeInsets.all(20.0),
         children: [
+          SizedBox(height: 25),
+          Text(
+            "E-Learning",
+            style: TextStyle(
+              color: Color.fromARGB(255, 0, 66, 165),
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            "SMPN 1 Lohbener ",
+            style: TextStyle(
+              color: Color.fromARGB(255, 0, 0, 0),
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           SizedBox(height: 20),
           Container(
             alignment: Alignment.topCenter,
@@ -22,14 +39,7 @@ class LoginView extends GetView<LoginController> {
               fit: BoxFit.contain,
             ),
           ),
-          SizedBox(height: 25),
-          Text(
-            "Silahkan login dengan nim dan password ",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          
           SizedBox(height: 25),
           Text(
             "NIM",
@@ -91,7 +101,7 @@ class LoginView extends GetView<LoginController> {
               child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                    Image.asset("assets/icons/facebook.png"),
+                    Image.asset("assets/ic/facebook.png"),
                     SizedBox(width: 7,),
                   Text(
                     "Facebook",
@@ -122,7 +132,7 @@ class LoginView extends GetView<LoginController> {
                 
               mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                    Image.asset("assets/icons/twitter.png"),
+                    Image.asset("assets/ic/twitter.png"),
                   Text(
                     "Twitter",
                     style: TextStyle(
