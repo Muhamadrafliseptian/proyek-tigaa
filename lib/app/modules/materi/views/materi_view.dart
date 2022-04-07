@@ -17,16 +17,9 @@ class MateriView extends GetView<MateriController> {
           color: Colors.black,
         ),
         title: Text(
-          "My Materi",
+          "My Ujian",
           style: TextStyle(color: Colors.black),
         ),
-        actions: [
-          IconButton(
-             onPressed: () => Get.offAllNamed(Routes.MATERI),
-          icon: Icon(Icons.arrow_right),
-            color: Colors.black,
-          ),
-        ],
         centerTitle: true,
       ),
       body: ListView(

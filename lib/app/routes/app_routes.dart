@@ -8,6 +8,7 @@ abstract class Routes {
   static const HOMEPAGE = _Paths.HOMEPAGE;
   static const PROFIL = _Paths.PROFIL;
   static const MATERI = _Paths.MATERI;
+  static const UJIAN = _Paths.UJIAN;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const HOMEPAGE = '/homepage';
   static const PROFIL = '/profil';
   static const MATERI = '/materi';
+  static const UJIAN = '/ujian';
 }

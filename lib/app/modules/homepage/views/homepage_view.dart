@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../../../routes/app_pages.dart';
 import '../controllers/homepage_controller.dart';
 
@@ -9,36 +7,37 @@ class HomepageView extends GetView<HomepageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF1F1F1),
+      backgroundColor: Colors.indigo.shade700,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFF1F1F1),
+        backgroundColor: Colors.indigo.shade700,
         leading: IconButton(
           onPressed: () => Get.offAllNamed(Routes.HOME),
           icon: Icon(Icons.arrow_back_ios),
-          color: Colors.black,
+          color: Colors.white,
         ),
         title: Text(
           "My HomePage",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         actions: [
           IconButton(
-             onPressed: () => Get.offAllNamed(Routes.MATERI),
+             onPressed: () => Get.offAllNamed(Routes.UJIAN),
           icon: Icon(Icons.more_horiz),
-            color: Colors.black,
+            color: Colors.white,
           ),
         ],
         centerTitle: true,
       ),
       body: ListView(
         children: [
+          SizedBox(height: 20,),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 25),
             padding: EdgeInsets.all(25),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Color(0xff22215B),
+              color: Colors.white,
             ),
             child: Stack(
               children: [
@@ -58,15 +57,15 @@ class HomepageView extends GetView<HomepageController> {
                     Text(
                       "Muhamad Rafli",
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
-                      "Student",
+                      "Siswa",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                     SizedBox(
@@ -76,7 +75,7 @@ class HomepageView extends GetView<HomepageController> {
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Color(0xffFFFFFF),
+                        color: Colors.black,
                       ),
                     ),
                   ],
@@ -110,7 +109,7 @@ class HomepageView extends GetView<HomepageController> {
                 Text(
                   "Menu Utama",
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -128,13 +127,13 @@ class HomepageView extends GetView<HomepageController> {
                   image: Image.asset("assets/pictures/Folder.png",),
                   title: "Materi",
                   date: "Desember",
-                  color: Color(0Xff415EB6),
+                  color: Colors.white,
                 ),
                 CardFolder(
                   image: Image.asset("assets/pictures/Folder(2).png"),
                   title: "Tugas",
                   date: "Desember",
-                  color: Color(0xFFFFB110),
+                  color: Colors.white,
                 ),
               ],
             ),
@@ -149,13 +148,13 @@ class HomepageView extends GetView<HomepageController> {
                   image: Image.asset("assets/pictures/Folder(1).png"),
                   title: "Ujian",
                   date: "Desember",
-                  color: Color(0xFFAC4040),
+                  color: Colors.white,
                 ),
                 CardFolder(
                   image: Image.asset("assets/pictures/Folder(3).png"),
                   title: "Nilai",
                   date: "Desember",
-                  color: Color(0XFF23B0B0),
+                  color:Colors.white,
                 ),
               ],
             ),
@@ -169,7 +168,7 @@ class HomepageView extends GetView<HomepageController> {
                 Text(
                   "Tugas Terbaru",
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -183,31 +182,31 @@ class HomepageView extends GetView<HomepageController> {
              leading: IconButton(
           onPressed: () {},
           icon: Icon(Icons.book_online_rounded),
-          color: Colors.black,
+          color: Colors.white,
         ),
-        title: Text("Matematika", style: TextStyle(color: Colors.black),),
-        subtitle: Text("Lorem ipsum dolor sit amet"),
-        trailing: Text("2 jam 5 menit"), 
+        title: Text("Matematika", style: TextStyle(color: Colors.white),),
+        subtitle: Text("Lorem ipsum dolor sit amet", style: TextStyle(color: Colors.white)),
+        trailing: Text("2 jam 5 menit", style: TextStyle(color: Colors.white)), 
           ),
            ListTile(
              leading: IconButton(
           onPressed: () {},
           icon: Icon(Icons.book_online_rounded),
-          color: Colors.black,
+          color: Colors.white,
         ),
-        title: Text("IPA", style: TextStyle(color: Colors.black),),
-        subtitle: Text("Lorem ipsum dolor sit amet"),
-        trailing: Text("2 jam 5 menit"), 
+        title: Text("IPA", style: TextStyle(color: Colors.white),),
+        subtitle: Text("Lorem ipsum dolor sit amet", style: TextStyle(color: Colors.white),),
+        trailing: Text("2 jam 5 menit", style: TextStyle(color: Colors.white)), 
           ),
            ListTile(
              leading: IconButton(
           onPressed: () {},
           icon: Icon(Icons.book_online_rounded),
-          color: Colors.black,
+          color: Colors.white,
         ),
-        title: Text("Bahasa Indonesia", style: TextStyle(color: Colors.black),),
-        subtitle: Text("Lorem ipsum dolor sit amet"),
-        trailing: Text("2 jam 5 menit"), 
+        title: Text("Bahasa Indonesia", style: TextStyle(color: Colors.white),),
+        subtitle: Text("Lorem ipsum dolor sit amet",style: TextStyle(color: Colors.white)),
+        trailing: Text("2 jam 5 menit", style: TextStyle(color: Colors.white)), 
           ),
         ],
       ),
@@ -237,7 +236,7 @@ class CardFolder extends StatelessWidget {
       height: 120,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: color.withOpacity(0.2),
+        color: color.withOpacity(0.3),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

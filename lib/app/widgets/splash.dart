@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
           child: Container(
             width: Get.width * 0.7,
             height: Get.width * 0.7,
-            child: Image.asset("assets/logo/logo-polindra.png"),
+            child: Image.asset("assets/logo/login.png"),
           ),
         ),
       ),

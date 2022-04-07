@@ -90,73 +90,7 @@ class LoginView extends GetView<LoginController> {
                 fixedSize: Size(150, 50),
               ),
             ),
-            Center(
-              child: Text("Atau masuk dengan menggunakan"),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                 OutlinedButton(
-              onPressed: () => Get.offAllNamed(Routes.HOMEPAGE),
-              child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                    Image.asset("assets/ic/facebook.png"),
-                    SizedBox(width: 7,),
-                  Text(
-                    "Facebook",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Color(0xFF3B5998),
-                    ),
-                  ),
-              
-                ],
-              ),
-                style: ButtonStyle(
-                  fixedSize: MaterialStateProperty.all(
-                      Size(150, 50)
-                  ),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0)
-                  ),
-                  ), side: MaterialStateProperty.all(
-                    BorderSide(color: Color(0xFF3B5998),
-                    ),
-                  ),
-                ),
-            ),
-             OutlinedButton(
-              onPressed: () => Get.offAllNamed(Routes.HOME),
-              child: Row(
-                
-              mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                    Image.asset("assets/ic/twitter.png"),
-                  Text(
-                    "Twitter",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Color(0Xff1DA1F2),
-                    ),
-                  ),
-              
-                ],
-              ),
-                style: ButtonStyle(
-                  fixedSize: MaterialStateProperty.all(
-                      Size(150, 50)
-                  ),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0)
-                  ),
-                  ), side: MaterialStateProperty.all(
-                    BorderSide(color: Color(0Xff1DA1F2),)
-                  ),
-                ),
-            ),
-              ],
-            )
+            
         ],
       ),
     );
