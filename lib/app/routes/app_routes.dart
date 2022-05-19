@@ -9,6 +9,9 @@ abstract class Routes {
   static const PROFIL = _Paths.PROFIL;
   static const MATERI = _Paths.MATERI;
   static const UJIAN = _Paths.UJIAN;
+  static const TEST = _Paths.TEST;
+  static const UAS = _Paths.UAS;
+  static const BUTTONSAVE = _Paths.BUTTONSAVE;
 }
 
 abstract class _Paths {
@@ -17,4 +20,7 @@ abstract class _Paths {
   static const PROFIL = '/profil';
   static const MATERI = '/materi';
   static const UJIAN = '/ujian';
+  static const TEST = '/test';
+  static const UAS = '/uas';
+  static const BUTTONSAVE = '/buttonsave';
 }

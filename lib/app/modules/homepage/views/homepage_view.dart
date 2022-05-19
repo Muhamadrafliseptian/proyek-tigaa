@@ -1,30 +1,35 @@
+import 'package:e_learning/app/modules/materi/views/materi_view.dart';
+import 'package:e_learning/app/modules/ujian/views/ujian_view.dart';
+import 'package:e_learning/app/modules/uas/views/uas_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/homepage_controller.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 class HomepageView extends GetView<HomepageController> {
+  get child => null;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo.shade700,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.indigo.shade700,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         leading: IconButton(
           onPressed: () => Get.offAllNamed(Routes.HOME),
           icon: Icon(Icons.arrow_back_ios),
-          color: Colors.white,
+          color: Color.fromARGB(255, 0, 0, 0),
         ),
-        title: Text(
-          "My HomePage",
-          style: TextStyle(color: Colors.white),
+        title: Image.asset(
+        "assets/logo/logo-polindra.png", height: 30, width: 30,
         ),
         actions: [
           IconButton(
-             onPressed: () => Get.offAllNamed(Routes.UJIAN),
-          icon: Icon(Icons.more_horiz),
-            color: Colors.white,
+             onPressed: () => Get.offAllNamed(Routes.MATERI),
+          icon: Icon(Icons.notifications,
+          color: Colors.black)
           ),
         ],
         centerTitle: true,
@@ -37,7 +42,7 @@ class HomepageView extends GetView<HomepageController> {
             padding: EdgeInsets.all(25),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Colors.white,
+              color: Colors.blue.shade200,
             ),
             child: Stack(
               children: [
@@ -57,7 +62,7 @@ class HomepageView extends GetView<HomepageController> {
                     Text(
                       "Muhamad Rafli",
                       style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                          color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       height: 5,
@@ -65,7 +70,7 @@ class HomepageView extends GetView<HomepageController> {
                     Text(
                       "Siswa",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                     SizedBox(
@@ -75,7 +80,7 @@ class HomepageView extends GetView<HomepageController> {
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                   ],
@@ -109,7 +114,7 @@ class HomepageView extends GetView<HomepageController> {
                 Text(
                   "Menu Utama",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -123,17 +128,29 @@ class HomepageView extends GetView<HomepageController> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CardFolder(
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MateriView()),
+                    );
+                  },
+                child: CardFolder(
                   image: Image.asset("assets/pictures/Folder.png",),
                   title: "Materi",
-                  date: "Desember",
-                  color: Colors.white,
+                  date: "2 jam yang lalu",
+                  color: Color.fromARGB(255, 1, 111, 171),
                 ),
-                CardFolder(
-                  image: Image.asset("assets/pictures/Folder(2).png"),
-                  title: "Tugas",
-                  date: "Desember",
-                  color: Colors.white,
+                ),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MateriView()),
+                    );
+                  },
+               child: CardFolder(
+                  image: Image.asset("assets/ic/exam (3).png", height: 30, width: 30,),
+                  title: "UAS",
+                  date: "2 jam yang lalu",
+                  color: Color.fromARGB(255, 199, 145, 7),
+                ),
                 ),
               ],
             ),
@@ -144,74 +161,139 @@ class HomepageView extends GetView<HomepageController> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CardFolder(
-                  image: Image.asset("assets/pictures/Folder(1).png"),
-                  title: "Ujian",
-                  date: "Desember",
-                  color: Colors.white,
+
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MateriView()),
+                    );
+                  },
+             
+                child: CardFolder(
+                  
+                  image: Image.asset("assets/ic/test.png", height: 30, width: 30,),
+                  title: "UTS",
+                  date: "2 jam yang lalu",
+                  color: Color.fromARGB(255, 255, 138, 138),
                 ),
-                CardFolder(
-                  image: Image.asset("assets/pictures/Folder(3).png"),
-                  title: "Nilai",
-                  date: "Desember",
-                  color:Colors.white,
+                   ),
+                   
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MateriView()),
+                    );
+                  },
+             
+                child: CardFolder(
+                  
+                  image: Image.asset("assets/ic/score.png", height: 30, width: 30,),
+                  title: "Nilai", 
+                  date: "2 jam yang lalu",
+                  color:Color.fromARGB(255, 0, 171, 162),
+                ),
                 ),
               ],
             ),
           ),
-             SizedBox(height: 30),
-          Padding(
+          SizedBox(height: 30),
+          
+           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Tugas Terbaru",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-                 Image.asset("assets/pictures/Sort.png")
-               
-              ],
-            ),
-          ),
-          ListTile(
-             leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.book_online_rounded),
-          color: Colors.white,
-        ),
-        title: Text("Matematika", style: TextStyle(color: Colors.white),),
-        subtitle: Text("Lorem ipsum dolor sit amet", style: TextStyle(color: Colors.white)),
-        trailing: Text("2 jam 5 menit", style: TextStyle(color: Colors.white)), 
-          ),
-           ListTile(
-             leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.book_online_rounded),
-          color: Colors.white,
-        ),
-        title: Text("IPA", style: TextStyle(color: Colors.white),),
-        subtitle: Text("Lorem ipsum dolor sit amet", style: TextStyle(color: Colors.white),),
-        trailing: Text("2 jam 5 menit", style: TextStyle(color: Colors.white)), 
-          ),
-           ListTile(
-             leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.book_online_rounded),
-          color: Colors.white,
-        ),
-        title: Text("Bahasa Indonesia", style: TextStyle(color: Colors.white),),
-        subtitle: Text("Lorem ipsum dolor sit amet",style: TextStyle(color: Colors.white)),
-        trailing: Text("2 jam 5 menit", style: TextStyle(color: Colors.white)), 
-          ),
-        ],
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Berita terbaru",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Lihat Semua",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                       color: Color.fromARGB(255, 93, 176, 244),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+           ),
+            SizedBox(height: 20),
+            
+           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 17),
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(right: 20),
+                                      width: MediaQuery.of(context).size.width *
+                                          0.8,
+                                      height: 135,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/images-1.png"),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(right: 20),
+                                      width: MediaQuery.of(context).size.width *
+                                          0.8,
+                                      height: 135,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/images-2.png"),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(right: 20),
+                                      width: MediaQuery.of(context).size.width *
+                                          0.8,
+                                      height: 135,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/images-1.png"),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+           ),
+          ],
       ),
+      
+      
+  //     bottomNavigationBar: ConvexAppBar( backgroundColor: Colors.blue,
+  //   items: [
+  //     TabItem
+  //     (icon: Icons.home, title: 'Home',),
+  //     TabItem(icon: Icons.map, title: 'Discovery'),
+  //     TabItem(icon: Icons.people, title: 'Profile'),
+  //   ],
+  //   initialActiveIndex: 2,//optional, default as 0
+  //   onTap: (int i) => print('click index=$i'),
+  // ),
     );
   }
+}
+
+UasView() {
 }
 
 class CardFolder extends StatelessWidget {
@@ -261,5 +343,6 @@ class CardFolder extends StatelessWidget {
         ],
       ),
     );
+    
   }
 }

@@ -4,20 +4,24 @@ import 'package:flutter/gestures.dart';
 import '../../../routes/app_pages.dart';
 import '../../login/controllers/login_controller.dart';
 
+import 'dart:async';
+
 class LoginView extends GetView<LoginController> {
   get style => null;
+
+  bool _isObscure = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(50.0),
         children: [
           SizedBox(height: 25),
           Text(
-            "E-Learning",
+            "E-Test",
             style: TextStyle(
-              color: Color.fromARGB(255, 0, 66, 165),
+              color: Colors.blue.shade400,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -35,45 +39,46 @@ class LoginView extends GetView<LoginController> {
             alignment: Alignment.topCenter,
             height: 300,
             child: Image.asset(
-              "assets/logo/login.png",
+              "assets/pictures/pana.png",
               fit: BoxFit.contain,
             ),
-          ),
+           ),
           
           SizedBox(height: 25),
-          Text(
-            "NIM",
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 8),
           TextField(
           
             keyboardType: TextInputType.phone,
             autocorrect: false,
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: "Contoh.2091920",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide.none,
+              ),
+               filled: true,
+              fillColor: Colors.blue.shade100,
+              hintText: "NIS",
             ),
           ),
           SizedBox(height: 25),
-          Text(
-            "Password",
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 8),
           TextField(
+            obscureText: _isObscure,
             keyboardType: TextInputType.visiblePassword,
-            obscureText: true,
+            // obscureText: true,
             autocorrect: false,
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: "Contoh.2091920",
+              suffixIcon: IconButton(icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+              onPressed: (){
+                // setState(() {
+                //   _isObscure = !_isObscure;
+                // });
+              }),
+              border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide.none,
+              ),
+              hintText: "Kata Sandi",
+               filled: true,
+              fillColor: Colors.blue.shade100,
             ),
           ),
              SizedBox(height: 30),
@@ -86,8 +91,10 @@ class LoginView extends GetView<LoginController> {
                 ),
               ),
               style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 0, 66, 165),
+                primary: Colors.blue,
                 fixedSize: Size(150, 50),
+                shape: new
+                RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
               ),
             ),
             

@@ -1,11 +1,10 @@
 import 'package:e_learning/app/modules/test/views/test_view.dart';
-import 'package:e_learning/app/modules/ujian/views/ujian_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
-import '../controllers/materi_controller.dart';
+import '../controllers/uas_controller.dart';
 
-class MateriView extends GetView<MateriController> {
+class UasView extends GetView<UasController> {
 @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,17 +42,11 @@ class MateriView extends GetView<MateriController> {
                   color: Color.fromARGB(255, 153, 150, 0),
                 ),
                 ),
-                 InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>UjianView()),
-                    );
-                  },
-              child:  CardFolder(
+                CardFolder(
                   image: Image.asset("assets/pictures/science.png", width: 30, height: 30),
                   title: "IPA",
                   color: Color(0xFFAC4040),
                 ),
-                 ),
               ],
             ),
           ),
