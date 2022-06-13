@@ -1,7 +1,4 @@
 import 'package:get/get.dart';
-
-import 'package:e_learning/app/modules/buttonsave/bindings/buttonsave_binding.dart';
-import 'package:e_learning/app/modules/buttonsave/views/buttonsave_view.dart';
 import 'package:e_learning/app/modules/home/bindings/home_binding.dart';
 import 'package:e_learning/app/modules/home/views/login_view.dart';
 import 'package:e_learning/app/modules/homepage/bindings/homepage_binding.dart';
@@ -51,11 +48,6 @@ class AppPages {
       name: _Paths.UAS,
       page: () => UasView(),
       binding: UasBinding(),
-    ),
-    GetPage(
-      name: _Paths.BUTTONSAVE,
-      page: () => ButtonsaveView(),
-      binding: ButtonsaveBinding(),
     ),
   ];
 }

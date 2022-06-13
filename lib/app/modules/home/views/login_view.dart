@@ -66,12 +66,6 @@ class LoginView extends GetView<LoginController> {
             // obscureText: true,
             autocorrect: false,
             decoration: InputDecoration(
-              suffixIcon: IconButton(icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
-              onPressed: (){
-                // setState(() {
-                //   _isObscure = !_isObscure;
-                // });
-              }),
               border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide.none,

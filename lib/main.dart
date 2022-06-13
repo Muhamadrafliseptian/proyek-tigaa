@@ -10,9 +10,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-  
     return FutureBuilder(
-      future: Future.delayed(Duration(seconds: 1)),
+      future: Future.delayed(Duration(seconds: 3)),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return SplashScreen();
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: "Application",
-            initialRoute: Routes.HOMEPAGE,
+            initialRoute: Routes.HOME,
             getPages: AppPages.routes,
           );
         }

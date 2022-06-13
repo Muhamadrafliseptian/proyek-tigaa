@@ -1,6 +1,10 @@
+import 'package:e_learning/app/modules/home/views/login_view.dart';
 import 'package:e_learning/app/modules/materi/views/materi_view.dart';
 import 'package:e_learning/app/modules/ujian/views/ujian_view.dart';
 import 'package:e_learning/app/modules/uas/views/uas_view.dart';
+import 'package:e_learning/main.dart';
+import 'package:e_learning/profile.dart';
+import 'package:e_learning/table.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
@@ -9,40 +13,167 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 class HomepageView extends GetView<HomepageController> {
   get child => null;
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        leading: IconButton(
-          onPressed: () => Get.offAllNamed(Routes.HOME),
-          icon: Icon(Icons.arrow_back_ios),
-          color: Color.fromARGB(255, 0, 0, 0),
-        ),
-        title: Image.asset(
-        "assets/logo/logo-polindra.png", height: 30, width: 30,
+        backgroundColor: Colors.white,
+        leading: IconButton(onPressed: (){}, icon: Icon(Icons.notifications_on, color: Colors.blue,),),
+        title: Text(
+          "Portal Ujian", style: TextStyle(fontSize: 18,
+          fontWeight: FontWeight.w500, color: Colors.black),
         ),
         actions: [
-          IconButton(
-             onPressed: () => Get.offAllNamed(Routes.MATERI),
-          icon: Icon(Icons.notifications,
-          color: Colors.black)
-          ),
+          PopupMenuButton(
+              offset: Offset(0, 45), // SET THE (X,Y) POSITION
+    iconSize: 30,
+    icon: Icon(
+      Icons.more_horiz,// CHOOSE YOUR CUSTOM ICON
+      color: Colors.blue,
+    ),
+              onSelected: (value) {},
+              itemBuilder: (context) {
+                return [
+                  PopupMenuItem(
+                    value: 'Home',
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Row(children: [
+                           Container(
+                              child: Icon(Icons.account_circle, color: Colors.black45,),
+                            ),
+                            InkWell(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Profile()),
+                                );
+                              },
+                              child: Text("Profil",
+                              style: TextStyle(
+                                  color: Colors.black45,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500),),
+                            ),
+                        ]),
+                      ],
+                    ),
+                  ),
+                  PopupMenuItem(
+                    // padding: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      
+                      children: [
+                        Row(
+                          children: [
+                            // IconButton(
+                            //   onPressed: () {
+                            //     Navigator.push(
+                            //       context,
+                            //       MaterialPageRoute(
+                            //           builder: (context) => Profileee()),
+                            //     );
+                            //   },
+                            
+                            // ),
+                             
+                            Container(
+                              child: Icon(Icons.logout, color: Colors.black45,),
+                            ),
+                            InkWell(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => table()),
+                                );
+                              },
+                              child: Text("Log Out",
+                              style: TextStyle(
+                                  color: Colors.black45,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500),),
+                            ),
+                            // Text(
+                            //   "Log Out",
+                            //   style: TextStyle(
+                            //       color: Colors.black45,
+                            //       fontSize: 14,
+                            //       fontWeight: FontWeight.w500),
+                            // ),
+                          ],
+                        )
+                      ],
+                    ),
+                  )
+                ];
+              })
         ],
         centerTitle: true,
       ),
       body: ListView(
+          padding: EdgeInsets.fromLTRB(15, 15, 20, 5),
         children: [
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 5,
+          ),
+          Container(
+            child: Text("Selamat Datang!", 
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
+            ),
+          ),
+          Container(
+            child: Text("Good Luck :)", 
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+child: TextField(
+   keyboardType: TextInputType.text,
+            // obscureText: true,
+            autocorrect: false,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(40),
+              borderSide: BorderSide.none,
+              ),
+              hintText: "Pencarian",
+               filled: true,
+              fillColor: Color.fromARGB(255, 236, 229, 229),
+            ),
+            
+),
+decoration: BoxDecoration(
+  boxShadow: [
+    BoxShadow(
+      color: Color.fromARGB(95, 86, 86, 86),
+            blurRadius: 25,
+            offset: const Offset(0, 10),
+    )
+  ]
+),
+          ),
+           
+          
+          SizedBox(
+            height: 30,
+          ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 25),
             padding: EdgeInsets.all(25),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.blue.shade200,
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.blue,
+            
             ),
             child: Stack(
               children: [
@@ -92,7 +223,7 @@ class HomepageView extends GetView<HomepageController> {
                       height: 30,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(6),
-                        color: Color(0xffFF317B),
+                        color: Colors.orange,
                       ),
                       child: Center(
                         child: Text(
@@ -129,172 +260,103 @@ class HomepageView extends GetView<HomepageController> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MateriView()),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MateriView()),
                     );
                   },
-                child: CardFolder(
-                  image: Image.asset("assets/pictures/Folder.png",),
-                  title: "Materi",
-                  date: "2 jam yang lalu",
-                  color: Color.fromARGB(255, 1, 111, 171),
-                ),
+                  child: CardFolder(
+                    // image: Image.asset(
+                    //   "assets/pictures/Folder.png",
+                    // ),
+                                        icon: Icon(Icons.tablet_mac_sharp, color: Colors.blue,),
+
+                    title: "Materi",
+                    date: "2 jam yang lalu",
+ color: Colors.white10                ),
                 ),
                 InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MateriView()),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MateriView()),
                     );
                   },
-               child: CardFolder(
-                  image: Image.asset("assets/ic/exam (3).png", height: 30, width: 30,),
-                  title: "UAS",
-                  date: "2 jam yang lalu",
-                  color: Color.fromARGB(255, 199, 145, 7),
-                ),
+                  child: CardFolder(
+                    // image: Image.asset(
+                    //   "assets/ic/exam (3).png",
+                    //   height: 30,
+                    //   width: 30,
+                    // ),
+                                        icon: Icon(Icons.book_sharp, color: Colors.orange,),
+
+                    title: "UAS",
+                    date: "2 jam yang lalu",
+ color: Color.fromARGB(255, 255, 255, 255),                  ),
                 ),
               ],
             ),
           ),
-          SizedBox(height: 20,),
-           Padding(
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MateriView()),
+                    );
+                  },
+                  child: CardFolder(
+                    // image: Image.asset(
+                    //   "assets/ic/test.png",
+                    //   height: 30,
+                    //   width: 30,
+                    // ),
+                                        icon: Icon(Icons.book_rounded, color: Color.fromARGB(255, 76, 144, 175),),
 
+           
+                    title: "UTS",
+                    date: "2 jam yang lalu",
+ color: Color.fromARGB(255, 255, 255, 255),                  ),
+                ),
                 InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MateriView()),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MateriView()),
                     );
                   },
-             
-                child: CardFolder(
-                  
-                  image: Image.asset("assets/ic/test.png", height: 30, width: 30,),
-                  title: "UTS",
-                  date: "2 jam yang lalu",
-                  color: Color.fromARGB(255, 255, 138, 138),
+                  child: CardFolder(
+                    // image: Image.asset(
+                    //   "assets/ic/score.png",
+                    //   height: 30,
+                    //   width: 30,
+                    // ),
+                                        icon: Icon(Icons.score_sharp, color: Colors.green,),
+
+                    title: "Nilai",
+                    date: "2 jam yang lalu",
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  ),
                 ),
-                   ),
-                   
-                InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MateriView()),
-                    );
-                  },
-             
-                child: CardFolder(
-                  
-                  image: Image.asset("assets/ic/score.png", height: 30, width: 30,),
-                  title: "Nilai", 
-                  date: "2 jam yang lalu",
-                  color:Color.fromARGB(255, 0, 171, 162),
-                ),
-                ),
+              
               ],
             ),
           ),
-          SizedBox(height: 30),
-          
-           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "Berita terbaru",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Lihat Semua",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                       color: Color.fromARGB(255, 93, 176, 244),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-           ),
-            SizedBox(height: 20),
-            
-           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 17),
-                              child: SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.only(right: 20),
-                                      width: MediaQuery.of(context).size.width *
-                                          0.8,
-                                      height: 135,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/images-1.png"),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(right: 20),
-                                      width: MediaQuery.of(context).size.width *
-                                          0.8,
-                                      height: 135,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/images-2.png"),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(right: 20),
-                                      width: MediaQuery.of(context).size.width *
-                                          0.8,
-                                      height: 135,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/images-1.png"),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-           ),
-          ],
+        ],
       ),
-      
-      
-  //     bottomNavigationBar: ConvexAppBar( backgroundColor: Colors.blue,
-  //   items: [
-  //     TabItem
-  //     (icon: Icons.home, title: 'Home',),
-  //     TabItem(icon: Icons.map, title: 'Discovery'),
-  //     TabItem(icon: Icons.people, title: 'Profile'),
-  //   ],
-  //   initialActiveIndex: 2,//optional, default as 0
-  //   onTap: (int i) => print('click index=$i'),
-  // ),
     );
   }
 }
 
-UasView() {
-}
+UasView() {}
 
 class CardFolder extends StatelessWidget {
   CardFolder({
@@ -302,47 +364,69 @@ class CardFolder extends StatelessWidget {
     required this.title,
     required this.date,
     required this.color,
-    required this.image,
+
+    required this.icon,
+
   }) : super(key: key);
 
   final String title;
   final String date;
   final Color color;
-  final Image image;
+
+      final Icon icon;
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
-      width: Get.width * 0.4,
+      padding: EdgeInsets.all(5),
+      width: 150,
       height: 120,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: color.withOpacity(0.3),
+            boxShadow: [
+          //background color of box
+          BoxShadow(
+            color: Color.fromARGB(255, 239, 239, 239),
+            //   soften the shadow
+            spreadRadius: 1.0, //extend the shadow
+            offset: Offset(
+              1.0, // Move to right 10  horizontally
+              1.0,
+               // Move to bottom 10 Vertically
+            ),
+          )
+        ],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          image,
+          icon,
           SizedBox(height: 15),
-          Text(title, style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: color,
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+            ),
           ),
+          SizedBox(
+            height: 5,
           ),
-          SizedBox(height: 5,),
           Text(
             date,
+            textAlign: TextAlign.center,
             style: TextStyle(
-            fontSize: 16,
-            color: color,
+              fontSize: 16,
+              color: Colors.black,
+            ),
           ),
-           ),
         ],
       ),
     );
-    
   }
 }

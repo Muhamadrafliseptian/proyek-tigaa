@@ -12,7 +12,13 @@ dependencies:
     sdk: flutter
   convex_bottom_bar: ^3.0.0
   carousel_slider: ^4.0.0
-
+  flutter_countdown_timer: ^4.1.0
+  image_picker: ^0.8.5+3
+  video_player: ^2.4.2
+  searchbar_animation: ^0.0.2
+  floating_search_bar: ^0.3.0
+  search_app_bar: ^1.0.2+2
+  hovering: ^1.0.4
 dev_dependencies:
   flutter_lints: ^1.0.0
   flutter_test:
