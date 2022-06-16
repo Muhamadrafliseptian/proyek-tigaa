@@ -3,6 +3,7 @@ import 'package:e_learning/app/modules/materi/views/materi_view.dart';
 import 'package:e_learning/app/modules/ujian/views/ujian_view.dart';
 import 'package:e_learning/app/modules/uas/views/uas_view.dart';
 import 'package:e_learning/main.dart';
+import 'package:e_learning/nilai.dart';
 import 'package:e_learning/profile.dart';
 import 'package:e_learning/table.dart';
 import 'package:flutter/material.dart';
@@ -21,45 +22,57 @@ class HomepageView extends GetView<HomepageController> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: IconButton(onPressed: (){}, icon: Icon(Icons.notifications_on, color: Colors.blue,),),
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.notifications_on,
+            color: Colors.blue,
+          ),
+        ),
         title: Text(
-          "Portal Ujian", style: TextStyle(fontSize: 18,
-          fontWeight: FontWeight.w500, color: Colors.black),
+          "Portal Ujian",
+          style: TextStyle(
+              fontSize: 18, fontWeight: FontWeight.w500, color: Colors.black),
         ),
         actions: [
           PopupMenuButton(
               offset: Offset(0, 45), // SET THE (X,Y) POSITION
-    iconSize: 30,
-    icon: Icon(
-      Icons.more_horiz,// CHOOSE YOUR CUSTOM ICON
-      color: Colors.blue,
-    ),
+              iconSize: 30,
+              icon: Icon(
+                Icons.more_horiz, // CHOOSE YOUR CUSTOM ICON
+                color: Colors.blue,
+              ),
               onSelected: (value) {},
               itemBuilder: (context) {
                 return [
                   PopupMenuItem(
                     value: 'Home',
                     child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Row(children: [
-                           Container(
-                              child: Icon(Icons.account_circle, color: Colors.black45,),
+                          Container(
+                            child: Icon(
+                              Icons.account_circle,
+                              color: Colors.black45,
                             ),
-                            InkWell(
-                              onTap: (){
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Profile()),
-                                );
-                              },
-                              child: Text("Profil",
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Profile()),
+                              );
+                            },
+                            child: Text(
+                              "Profil",
                               style: TextStyle(
                                   color: Colors.black45,
                                   fontSize: 14,
-                                  fontWeight: FontWeight.w500),),
+                                  fontWeight: FontWeight.w500),
                             ),
+                          ),
                         ]),
                       ],
                     ),
@@ -68,7 +81,6 @@ class HomepageView extends GetView<HomepageController> {
                     // padding: EdgeInsets.all(10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      
                       children: [
                         Row(
                           children: [
@@ -80,25 +92,30 @@ class HomepageView extends GetView<HomepageController> {
                             //           builder: (context) => Profileee()),
                             //     );
                             //   },
-                            
+
                             // ),
-                             
+
                             Container(
-                              child: Icon(Icons.logout, color: Colors.black45,),
+                              child: Icon(
+                                Icons.logout,
+                                color: Colors.black45,
+                              ),
                             ),
                             InkWell(
-                              onTap: (){
+                              onTap: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => table()),
                                 );
                               },
-                              child: Text("Log Out",
-                              style: TextStyle(
-                                  color: Colors.black45,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500),),
+                              child: Text(
+                                "Log Out",
+                                style: TextStyle(
+                                    color: Colors.black45,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500),
+                              ),
                             ),
                             // Text(
                             //   "Log Out",
@@ -118,52 +135,55 @@ class HomepageView extends GetView<HomepageController> {
         centerTitle: true,
       ),
       body: ListView(
-          padding: EdgeInsets.fromLTRB(15, 15, 20, 5),
+        padding: EdgeInsets.fromLTRB(15, 15, 20, 5),
         children: [
           SizedBox(
             height: 5,
           ),
           Container(
-            child: Text("Selamat Datang!", 
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
+            child: Text(
+              "Selamat Datang!",
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
             ),
           ),
           Container(
-            child: Text("Good Luck :)", 
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue),
+            child: Text(
+              "Good Luck :)",
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue),
             ),
           ),
           SizedBox(
             height: 20,
           ),
           Container(
-child: TextField(
-   keyboardType: TextInputType.text,
-            // obscureText: true,
-            autocorrect: false,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(40),
-              borderSide: BorderSide.none,
+            child: TextField(
+              keyboardType: TextInputType.text,
+              // obscureText: true,
+              autocorrect: false,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(40),
+                  borderSide: BorderSide.none,
+                ),
+                hintText: "Pencarian",
+                filled: true,
+                fillColor: Color.fromARGB(255, 236, 229, 229),
               ),
-              hintText: "Pencarian",
-               filled: true,
-              fillColor: Color.fromARGB(255, 236, 229, 229),
             ),
-            
-),
-decoration: BoxDecoration(
-  boxShadow: [
-    BoxShadow(
-      color: Color.fromARGB(95, 86, 86, 86),
-            blurRadius: 25,
-            offset: const Offset(0, 10),
-    )
-  ]
-),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                color: Color.fromARGB(95, 86, 86, 86),
+                blurRadius: 25,
+                offset: const Offset(0, 10),
+              )
+            ]),
           ),
-           
-          
           SizedBox(
             height: 30,
           ),
@@ -173,7 +193,6 @@ decoration: BoxDecoration(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.blue,
-            
             ),
             child: Stack(
               children: [
@@ -267,14 +286,15 @@ decoration: BoxDecoration(
                     );
                   },
                   child: CardFolder(
-                    // image: Image.asset(
-                    //   "assets/pictures/Folder.png",
-                    // ),
-                                        icon: Icon(Icons.tablet_mac_sharp, color: Colors.blue,),
-
-                    title: "Materi",
-                    date: "2 jam yang lalu",
- color: Colors.white10                ),
+                      // image: Image.asset(
+                      //   "assets/pictures/Folder.png",
+                      // ),
+                      icon: Icon(
+                        Icons.tablet_mac_sharp,
+                        color: Colors.blue,
+                      ),
+                      title: "Materi",
+                      color: Colors.white10),
                 ),
                 InkWell(
                   onTap: () {
@@ -289,11 +309,14 @@ decoration: BoxDecoration(
                     //   height: 30,
                     //   width: 30,
                     // ),
-                                        icon: Icon(Icons.book_sharp, color: Colors.orange,),
+                    icon: Icon(
+                      Icons.book_sharp,
+                      color: Colors.orange,
+                    ),
 
                     title: "UAS",
-                    date: "2 jam yang lalu",
- color: Color.fromARGB(255, 255, 255, 255),                  ),
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  ),
                 ),
               ],
             ),
@@ -319,18 +342,20 @@ decoration: BoxDecoration(
                     //   height: 30,
                     //   width: 30,
                     // ),
-                                        icon: Icon(Icons.book_rounded, color: Color.fromARGB(255, 76, 144, 175),),
+                    icon: Icon(
+                      Icons.book_rounded,
+                      color: Color.fromARGB(255, 76, 144, 175),
+                    ),
 
-           
                     title: "UTS",
-                    date: "2 jam yang lalu",
- color: Color.fromARGB(255, 255, 255, 255),                  ),
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  ),
                 ),
                 InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MateriView()),
+                      MaterialPageRoute(builder: (context) => nilai()),
                     );
                   },
                   child: CardFolder(
@@ -339,14 +364,15 @@ decoration: BoxDecoration(
                     //   height: 30,
                     //   width: 30,
                     // ),
-                                        icon: Icon(Icons.score_sharp, color: Colors.green,),
+                    icon: Icon(
+                      Icons.score_sharp,
+                      color: Colors.green,
+                    ),
 
                     title: "Nilai",
-                    date: "2 jam yang lalu",
                     color: Color.fromARGB(255, 255, 255, 255),
                   ),
                 ),
-              
               ],
             ),
           ),
@@ -362,19 +388,14 @@ class CardFolder extends StatelessWidget {
   CardFolder({
     Key? key,
     required this.title,
-    required this.date,
     required this.color,
-
     required this.icon,
-
   }) : super(key: key);
 
   final String title;
-  final String date;
   final Color color;
 
-      final Icon icon;
-
+  final Icon icon;
 
   @override
   Widget build(BuildContext context) {
@@ -385,7 +406,7 @@ class CardFolder extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: color.withOpacity(0.3),
-            boxShadow: [
+        boxShadow: [
           //background color of box
           BoxShadow(
             color: Color.fromARGB(255, 239, 239, 239),
@@ -394,7 +415,7 @@ class CardFolder extends StatelessWidget {
             offset: Offset(
               1.0, // Move to right 10  horizontally
               1.0,
-               // Move to bottom 10 Vertically
+              // Move to bottom 10 Vertically
             ),
           )
         ],
@@ -416,14 +437,6 @@ class CardFolder extends StatelessWidget {
           ),
           SizedBox(
             height: 5,
-          ),
-          Text(
-            date,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.black,
-            ),
           ),
         ],
       ),
